@@ -1,19 +1,40 @@
-import { useState } from "react"
+import { useState } from "react";
+
+const API_URL =
+  "https://my-json-server.typicode.com/shaluyadav25/live-getData/users/";
 
 const App = () => {
-  const[name,setName]=useState('')
-  const handleChange=(e)=>{
-    setName({...name,[e.target.name]:e.target.value})
-  }
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    console.log(name);
-  }
-  return (
-    <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Enter your name" onChange={handleChange}  />
-    </form>
-  )
-}
+  const [users, setUsers] = useState([]);
 
-export default App
+  const loadUsers = async () => {
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+
+      setUsers(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <main>
+      <section>
+        <h1>Users</h1>
+
+        <button onClick={loadUsers}>Fetch Users</button>
+
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>
+              <strong>{user.name}</strong>
+              <span>{user.role}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  );
+};
+
+export default App;
