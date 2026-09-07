@@ -1,0 +1,30 @@
+{
+    "users":[
+        {
+            "id":"1",
+            "name":"Shalu yadav",
+            "role":"Software intern"
+        },
+                {
+            "id":"2",
+            "name":"Shalu yadav",
+            "role":"Software intern"
+        },
+        {
+            "id":"3",
+            "name":"Shalu yadav",
+            "role":"Software intern"
+        },
+        {
+            "id":"4",
+            "name":"Shalu yadav",
+            "role":"Software intern"
+        },
+        {
+            "id":"5",
+            "name":"Shalu yadav",
+            "role":"Software intern"
+        }
+    ]
+
+}
